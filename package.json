@@ -1,0 +1,43 @@
+{
+  "name": "cypress-cucumber",
+  "version": "1.0.0",
+  "description": "clone this repo and open terminal with root project directory and following the command step by step:",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "cypress run --headed --browser chrome",
+    "cy:parallel": "cypress-parallel -s cy:run:allure -t 4 -d 'cypress/e2e/features/*.feature' -a false"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@shelex/cypress-allure-plugin": "^2.40.0",
+    "cypress": "^12.17.1",
+    "cypress-mochawesome-reporter": "^3.5.1",
+    "esbuild": "^0.18.11",
+    "multiple-cucumber-html-reporter": "^3.4.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
+    "cypress-parallel": "^0.13.0",
+    "cypress-xpath": "^2.0.1"
+  },
+  "cucumberautocomplete.steps": [
+    "cypress/integration/step_definitions/*.js",
+    "node_modules/qa-lib/src/step_definitions/*.js"
+  ],
+  "cucumberautocomplete.strictGherkinCompletion": "true",
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/integration/step_definitions/*.{js,ts}"
+    ],
+    "nonGlobalStepDefinitions": false,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
